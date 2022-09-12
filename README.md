@@ -1,4 +1,4 @@
-GTK3 Precompiled libs for windows
+GTK3 Precompiled Libs For Windows
 =============================
 
 TODO...
