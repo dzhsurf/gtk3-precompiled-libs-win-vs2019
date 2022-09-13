@@ -104,6 +104,8 @@ You could follow this guide to compile your gtk-3 libs.
 
   * Or you can set it up in the desktop environment.
 
+  * ![env](https://raw.githubusercontent.com/dzhsurf/gtk3-precompiled-libs-win-vs2019/main/images/environment-variables.jpeg)
+
   * **Notes:** 
 
   * Why I should set up those folders even though there is nothing in them? 
