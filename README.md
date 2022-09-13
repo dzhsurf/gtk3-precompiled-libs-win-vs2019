@@ -1,7 +1,7 @@
 GTK3 Precompiled Libs For Native Windows
 =============================
 
- 
+ `x86/vs16(vs2019)`
 
 **Notes: **
 
@@ -105,7 +105,10 @@ You could follow this guide to compile your gtk-3 libs.
   * Or you can set it up in the desktop environment.
 
   * **Notes:** 
-    Why I should set up those folders even though there is nothing in them? Because `c:\include`, `c:\lib` `c:\bin` are used for storing the target SDK libs and binary files. And in the building process, they will referenc some libs and binary which were built from the pre-steps. If we haven't set up those environment variables, the building process will fail.
+
+  * Why I should set up those folders even though there is nothing in them? 
+
+  * Because `c:\include`, `c:\lib` `c:\bin` are used for storing the target SDK libs and binary files. And in the building process, they will referenc some libs and binary which were built from the pre-steps. If we haven't set up those environment variables, the building process will fail.
 
 * git, used for checkout the codes.
 
