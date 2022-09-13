@@ -88,7 +88,7 @@ You could follow this guide to compile your gtk-3 libs.
 * Python meson, ninja 
 
   * ```shell
-    pip install meson, ninja
+    pip install meson, ninja, gi-docgen
     ```
 
 * Setup the system environment variables
@@ -124,8 +124,40 @@ Now, it's all ready. Let's go and build it!
 
 **Notes:** 
 
-* YOU MUST BUILD THE CODE FOLLOWING THESE STEPS.
+* **YOU MUST BUILD THE CODE FOLLOWING THESE STEPS.**
+
 * Because almost every lib has its dependencies, and some of them are the same. If you don't follow these steps, some libs will be built multiple times with different versions. It will cause the weird compile issue or runtime issue.
 
+* **meson setup must add --buildtype=release argument.** Otherwise, it will cause runtimes errors. As in some projects, the build configuration does not match in debug mode, the compiler will use the /MD to compile all the c/cpp files, no matter what build type you set.
+
+* If you want to config to other directory, you can append the prefix argument. For example:
+
+  `meson setup --buildtype=release --prefix=d:\buildsdk _build`
 
 
+
+**1. GLib-2.0** : 2.73.3
+
+```shell
+git clone https://gitlab.gnome.org/GNOME/glib.git
+git checkout <version>
+meson setup --buildtype=release _build
+meson compile -C _build
+meson install -C _build
+```
+
+(1) Setup finish.
+
+![1](images/glib-1.jpeg)
+
+(2) Compile finish.
+
+![](images/glib-2.jpeg)
+
+(3) Install finish. You can see the libs and binary files will install in those directories.
+
+![](images/glib-3.jpeg) ![](images/glib-4.jpeg)
+
+And you can use dependencies walker to check the dll is linked to the right runtime libs.
+
+![](images/glib-5.jpeg)
