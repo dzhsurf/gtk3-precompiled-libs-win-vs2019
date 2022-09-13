@@ -9,7 +9,7 @@ The author only tested on vs2019 x86. The x64 or any other vs version may have s
 
 
 
-# How to build GTK-3 on native windows(msvc), not msys2,mingw,cygwin, etc..
+# How to build GTK-3 for native windows(msvc), not msys2,mingw,cygwin, etc...
 
 You could follow this guide to compile your gtk-3 libs.
 
