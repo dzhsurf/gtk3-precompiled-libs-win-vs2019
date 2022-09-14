@@ -136,7 +136,7 @@ Now, it's all ready. Let's go and build it!
 
 
 
-**1. GLib-2.0** : 2.73.3
+**1. GLib-2.0: **  - 2.73.3
 
 ```shell
 git clone https://gitlab.gnome.org/GNOME/glib.git
@@ -148,7 +148,7 @@ meson install -C _build
 
 (1) Setup finish.
 
-![1](images/glib-1.jpeg)
+![](images/glib-1.jpeg)
 
 (2) Compile finish.
 
@@ -161,3 +161,81 @@ meson install -C _build
 And you can use dependencies walker to check the dll is linked to the right runtime libs.
 
 ![](images/glib-5.jpeg)
+
+
+
+**2. freetype2: ** - 2.12.1
+
+```shell
+git clone https://gitlab.freedesktop.org/freetype/freetype.git
+git checkout <version>
+meson setup --buildtype=release _build
+```
+
+![](images/freetype-1.jpeg)
+
+After setup is complete. Notice, that the FreeType libs are built without harfbuzz. This will be fixed later. Go ahead compile and install. 
+
+```shell
+meson compile -C _build
+meson install -C _build
+```
+
+**Notice: ** 
+
+After install. You will see freetype2.pc in the lib\pkgconfig directory. Copy and rename to freetype.pc , left those two pkg-config files so that other libs can match the correct version of the freetype library.
+
+![](images/freetype-2.jpeg)
+
+
+
+**3. fontconfig: ** - 2.14.0
+
+```shell
+git clone https://github.com/freedesktop/fontconfig.git
+git checkout <version>
+meson setup --buildtype=release _build
+meson compile -C _build
+meson install -C _build
+```
+
+
+
+**4. cairo: ** - 1.17.6
+
+```shell
+git clone 
+git checkout <version>
+meson setup --buildtype=release _build
+meson compile -C _build
+meson install -C _build
+```
+
+
+
+**5. gobject-introspection: ** - 1.73.1
+
+```shell
+git clone 
+git checkout <version>
+meson setup --buildtype=release -Dcairo_libname=cairo-gobject-2.dll _build
+meson compile -C _build
+meson install -C _build
+```
+
+
+
+**6. harfbuzz: ** - 5.1.0
+
+```shell
+git clone 
+git checkout <version>
+meson setup --buildtype=release _build
+meson compile -C _build
+meson install -C _build
+```
+
+
+
+**7. freetype again: **
+
