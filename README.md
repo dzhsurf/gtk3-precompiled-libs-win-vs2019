@@ -313,6 +313,6 @@ meson install -C _build
 
 **Congratulation! You did it!**
 
-Open `c:\bin\gtk3-demo.exe` , check it can run or not.
+Open `c:\bin\gtk3-demo.exe` , and check if it can run or not.
 
 ![](images/gtk-1.png)
