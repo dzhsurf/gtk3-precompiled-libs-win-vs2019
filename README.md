@@ -183,7 +183,7 @@ meson install -C _build
 
 **Notice:** 
 
-After install. You will see freetype2.pc in the lib\pkgconfig directory. Copy and rename to freetype.pc , left those two pkg-config files so that other libs can match the correct version of the freetype library.
+After install. You will see `freetype2.pc` in the `lib\pkgconfig` directory. Copy and rename to `freetype.pc` , left those two pkg-config files so that other libs can match the correct version of the freetype library.
 
 ![](images/freetype-2.jpeg)
 
