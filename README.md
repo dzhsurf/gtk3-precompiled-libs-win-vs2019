@@ -88,7 +88,7 @@ You could follow this guide to compile your gtk-3 libs.
 * Python meson, ninja, docutils
 
   * ```shell
-    pip install meson, ninja, docutils
+    pip install meson ninja docutils
     ```
 
 * Setup the system environment variables
