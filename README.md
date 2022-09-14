@@ -3,7 +3,7 @@ GTK3 Precompiled Libs For Native Windows
 
  `x86/vs16(vs2019)`
 
-**Notes: **
+**Notice:**
 
 The author only tested on vs2019 x86. The x64 or any other vs version may have some compile issue, or there's not, if you need the x64 version, try it yourself, bless you. 
 
@@ -85,10 +85,10 @@ You could follow this guide to compile your gtk-3 libs.
 
   * Notes: when you have multiple python envs, you must be careful in checking the configuration is in the correct environments.
 
-* Python meson, ninja 
+* Python meson, ninja, docutils
 
   * ```shell
-    pip install meson, ninja, gi-docgen
+    pip install meson, ninja, docutils
     ```
 
 * Setup the system environment variables
@@ -106,7 +106,7 @@ You could follow this guide to compile your gtk-3 libs.
 
   * ![env](https://raw.githubusercontent.com/dzhsurf/gtk3-precompiled-libs-win-vs2019/main/images/environment-variables.jpeg)
 
-  * **Notes:** 
+  * **Notice:** 
 
   * Why I should set up those folders even though there is nothing in them? 
 
@@ -122,7 +122,7 @@ Now, it's all ready. Let's go and build it!
 
 ## Building
 
-**Notes:** 
+**Notice:** 
 
 * **YOU MUST BUILD THE CODE FOLLOWING THESE STEPS.**
 
@@ -136,7 +136,7 @@ Now, it's all ready. Let's go and build it!
 
 
 
-**1. GLib-2.0: **  - 2.73.3
+**1. GLib-2.0:**  - 2.73.3
 
 ```shell
 git clone https://gitlab.gnome.org/GNOME/glib.git
@@ -164,7 +164,7 @@ And you can use dependencies walker to check the dll is linked to the right runt
 
 
 
-**2. freetype2: ** - 2.12.1
+**2. freetype2:** - 2.12.1
 
 ```shell
 git clone https://gitlab.freedesktop.org/freetype/freetype.git
@@ -181,7 +181,7 @@ meson compile -C _build
 meson install -C _build
 ```
 
-**Notice: ** 
+**Notice:** 
 
 After install. You will see freetype2.pc in the lib\pkgconfig directory. Copy and rename to freetype.pc , left those two pkg-config files so that other libs can match the correct version of the freetype library.
 
@@ -189,7 +189,7 @@ After install. You will see freetype2.pc in the lib\pkgconfig directory. Copy an
 
 
 
-**3. fontconfig: ** - 2.14.0
+**3. fontconfig:** - 2.14.0
 
 ```shell
 git clone https://github.com/freedesktop/fontconfig.git
@@ -201,10 +201,10 @@ meson install -C _build
 
 
 
-**4. cairo: ** - 1.17.6
+**4. cairo:** - 1.17.6
 
 ```shell
-git clone 
+git clone https://gitlab.freedesktop.org/cairo/cairo.git
 git checkout <version>
 meson setup --buildtype=release _build
 meson compile -C _build
@@ -213,10 +213,10 @@ meson install -C _build
 
 
 
-**5. gobject-introspection: ** - 1.73.1
+**5. gobject-introspection:** - 1.73.1
 
 ```shell
-git clone 
+git clone https://github.com/GNOME/gobject-introspection.git
 git checkout <version>
 meson setup --buildtype=release -Dcairo_libname=cairo-gobject-2.dll _build
 meson compile -C _build
@@ -225,10 +225,10 @@ meson install -C _build
 
 
 
-**6. harfbuzz: ** - 5.1.0
+**6. harfbuzz:** - 5.1.0
 
 ```shell
-git clone 
+git clone https://github.com/harfbuzz/harfbuzz.git
 git checkout <version>
 meson setup --buildtype=release _build
 meson compile -C _build
@@ -237,5 +237,82 @@ meson install -C _build
 
 
 
-**7. freetype again: **
+**7. freetype again:**
 
+```shell
+meson setup --wipe --buildtype=release _build
+meson compile -C _build
+meson install -C _build
+```
+
+This time, you will see the HarfBuzz enabled.
+
+![](images/freetype-3.jpeg)
+
+
+
+**8. fribidi:** - 1.0.12
+
+```shell
+git clone https://github.com/fribidi/fribidi.git
+git checkout <version>
+meson setup --buildtype=release -Ddocs=false _build
+meson compile -C _build
+meson install -C _build
+```
+
+
+
+**9. pango:** - 1.50.9
+
+```shell
+git clone https://gitlab.gnome.org/GNOME/pango.git
+git checkout <version>
+meson setup --buildtype=release _build
+meson compile -C _build
+meson install -C _build
+```
+
+
+
+**10. gdk-pixbuf-2.0:** - 2.42.9
+
+```shell
+git clone https://gitlab.gnome.org/GNOME/gdk-pixbuf.git
+git checkout <version>
+meson setup --buildtype=release _build
+meson compile -C _build
+meson install -C _build
+```
+
+
+
+**11. atk:** - 2.38.0
+
+```shell
+git clone https://github.com/GNOME/atk.git
+git checkout <version>
+meson setup --buildtype=release _build
+meson compile -C _build
+meson install -C _build
+```
+
+
+
+**12. gtk-3:** 3.24.34
+
+```shell
+git clone https://gitlab.gnome.org/GNOME/gtk.git
+git checkout <version>
+meson setup --buildtype=release _build
+meson compile -C _build
+meson install -C _build
+```
+
+
+
+**Congratulation! You did it!**
+
+Open `c:\bin\gtk3-demo.exe` , check it can run or not.
+
+![](images/gtk-1.png)
