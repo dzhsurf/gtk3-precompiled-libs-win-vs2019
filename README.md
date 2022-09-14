@@ -7,13 +7,13 @@ GTK3 Precompiled Libs For Native Windows
 
 The author only tested on vs2019 x86. The x64 or any other vs version may have some compile issue, or there's not, if you need the x64 version, try it yourself, bless you. 
 
-
+  
 
 # How to build GTK-3 for native windows(msvc), not msys2,mingw,cygwin, etc...
 
 You could follow this guide to compile your gtk-3 libs.
 
-
+  
 
 ## Prerequisites
 
@@ -114,11 +114,13 @@ You could follow this guide to compile your gtk-3 libs.
 
 * git, used for checkout the codes.
 
+* If you are using Windows10/11, turn the UAC off, and turn on the develop mode. Otherwise, you will be failed on the install stage because of the permission issue.
 
+  
 
 Now, it's all ready. Let's go and build it!
 
-
+  
 
 ## Building
 
@@ -134,7 +136,7 @@ Now, it's all ready. Let's go and build it!
 
   `meson setup --buildtype=release --prefix=d:\buildsdk _build`
 
-
+  
 
 **1. GLib-2.0:**  - 2.73.3
 
@@ -162,13 +164,12 @@ And you can use dependencies walker to check the dll is linked to the right runt
 
 ![](images/glib-5.jpeg)
 
-
+  
 
 **2. freetype2:** - 2.12.1
 
 ```shell
-git clone https://gitlab.freedesktop.org/freetype/freetype.git
-git checkout <version>
+# https://gitlab.freedesktop.org/freetype/freetype.git
 meson setup --buildtype=release _build
 ```
 
@@ -187,129 +188,100 @@ After install. You will see `freetype2.pc` in the `lib\pkgconfig` directory. Cop
 
 ![](images/freetype-2.jpeg)
 
-
+​    
 
 **3. fontconfig:** - 2.14.0
 
 ```shell
-git clone https://github.com/freedesktop/fontconfig.git
-git checkout <version>
+# https://github.com/freedesktop/fontconfig.git
 meson setup --buildtype=release _build
-meson compile -C _build
-meson install -C _build
 ```
 
-
+​    
 
 **4. cairo:** - 1.17.6
 
 ```shell
-git clone https://gitlab.freedesktop.org/cairo/cairo.git
-git checkout <version>
+# https://gitlab.freedesktop.org/cairo/cairo.git
 meson setup --buildtype=release _build
-meson compile -C _build
-meson install -C _build
 ```
 
-
+​    
 
 **5. gobject-introspection:** - 1.73.1
 
 ```shell
-git clone https://github.com/GNOME/gobject-introspection.git
-git checkout <version>
+# https://github.com/GNOME/gobject-introspection.git
 meson setup --buildtype=release -Dcairo_libname=cairo-gobject-2.dll _build
-meson compile -C _build
-meson install -C _build
 ```
 
-
+​    
 
 **6. harfbuzz:** - 5.1.0
 
 ```shell
-git clone https://github.com/harfbuzz/harfbuzz.git
-git checkout <version>
+# https://github.com/harfbuzz/harfbuzz.git
 meson setup --buildtype=release _build
-meson compile -C _build
-meson install -C _build
 ```
 
-
+  
 
 **7. freetype again:**
 
 ```shell
 meson setup --wipe --buildtype=release _build
-meson compile -C _build
-meson install -C _build
 ```
 
 This time, you will see the HarfBuzz enabled.
 
 ![](images/freetype-3.jpeg)
 
-
+  
 
 **8. fribidi:** - 1.0.12
 
 ```shell
-git clone https://github.com/fribidi/fribidi.git
-git checkout <version>
+# https://github.com/fribidi/fribidi.git
 meson setup --buildtype=release -Ddocs=false _build
-meson compile -C _build
-meson install -C _build
 ```
 
-
+  
 
 **9. pango:** - 1.50.9
 
 ```shell
-git clone https://gitlab.gnome.org/GNOME/pango.git
-git checkout <version>
+# https://gitlab.gnome.org/GNOME/pango.git
 meson setup --buildtype=release _build
-meson compile -C _build
-meson install -C _build
 ```
 
-
+  
 
 **10. gdk-pixbuf-2.0:** - 2.42.9
 
 ```shell
-git clone https://gitlab.gnome.org/GNOME/gdk-pixbuf.git
-git checkout <version>
+# https://gitlab.gnome.org/GNOME/gdk-pixbuf.git
 meson setup --buildtype=release _build
-meson compile -C _build
-meson install -C _build
 ```
 
-
+  
 
 **11. atk:** - 2.38.0
 
 ```shell
-git clone https://github.com/GNOME/atk.git
-git checkout <version>
+# https://github.com/GNOME/atk.git
 meson setup --buildtype=release _build
-meson compile -C _build
-meson install -C _build
 ```
 
-
+  
 
 **12. gtk-3:** 3.24.34
 
 ```shell
-git clone https://gitlab.gnome.org/GNOME/gtk.git
-git checkout <version>
+# https://gitlab.gnome.org/GNOME/gtk.git
 meson setup --buildtype=release _build
-meson compile -C _build
-meson install -C _build
 ```
 
-
+  
 
 **Congratulation! You did it!**
 
