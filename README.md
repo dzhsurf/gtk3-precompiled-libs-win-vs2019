@@ -1,11 +1,15 @@
 GTK3 Precompiled Libs For Native Windows
 =============================
 
- `x86/vs16(vs2019)`
+1. Download `x86/vs16` `precompiled-sdk.zip`
+2. Extract `bin` and set the environment PATH variable.
+3. Run `bin\gtk3-demo.exe` check everything goes work.
+4. Copy the DLLs you need to your project.
 
 **Notice:**
 
-The author only tested on vs2019 x86. The x64 or any other vs version may have some compile issue, or there's not, if you need the x64 version, try it yourself, bless you. 
+* The author only tested on VS2019 x86. The x64 or any other vs version may have some compile issue, or there's not, if you need the x64 version, try it yourself, bless you. 
+* You should prepare VS2019 runtime for using these libs.
 
   
 
