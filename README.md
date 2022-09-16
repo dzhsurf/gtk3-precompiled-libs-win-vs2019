@@ -16,4 +16,3 @@ GTK3 Precompiled Libs For Native Windows
 [How to install PyGObject, PyCairo with VS16 GTK-3](how_to_install_pygobject_pycairo.md)
 
 [How to build GTK-3 for Native Windows(msvc), not msys, mingw, cywin, etc...](how_to_build_vs16_gtk3_libs.md)
-
