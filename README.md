@@ -8,7 +8,6 @@ GTK3 Precompiled Libs For Native Windows
 
 **Notice:**
 
-* The author only tested on VS2019 x86. The x64 or any other vs version may have some compile issue, or there's not, if you need the x64 version, try it yourself, bless you. 
 * You should prepare VS2019 runtime for using these libs.
 
   
