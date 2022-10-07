@@ -48,6 +48,6 @@ gi.request_version("GTK", "3.0")
 
 Then `import_pygobject_dll_module` function will add DLLs path to `os.environ['PATH']` and setup the `GI_TYPELIB_PATH` environment, so that you can easily to import gi and cairo.
 
-Prebuilt PyGobject version: 3.42.0
+Prebuilt PyGobject version: 3.42.2
 
 Prebuilt PyCairo version: 1.21.0
